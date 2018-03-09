@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.notes.filip.notes.ListNotes"
-    tools:showIn="@layout/app_bar_list_notes">
+    tools:context="com.notes.filip.notes.EditNote">
 
-    <ListView
-        android:layout_height="match_parent"
+    <EditText
+        android:id="@+id/editNote"
         android:layout_width="match_parent"
-        android:clickable="true"
-        android:focusable="true"
-        android:id="@+id/notesOverview"
-        />
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:gravity="top"
+        android:textColorLink="@android:color/black" />
 
 </android.support.constraint.ConstraintLayout>
