@@ -31,13 +31,18 @@ public class EditNote extends AppCompatActivity {
 
     public void SaveNote(EditText noteText){
         try{
-            final DateFormat dateFormat = new SimpleDateFormat("yy-MM-DD_HH-mm-ss");
-            String fileSaveTime = dateFormat.format(new Date().getTime());
+            if(noteText.getText().toString().length()==0){
+                Toast.makeText(this, "Note empty!", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                final DateFormat dateFormat = new SimpleDateFormat("yy-MM-DD_HH-mm-ss");
+                String fileSaveTime = dateFormat.format(new Date().getTime());
 
-            OutputStreamWriter out = new OutputStreamWriter(openFileOutput("Note_" + fileSaveTime + ".txt", 0));
-            out.write(noteText.getText().toString());
-            out.close();
-            Toast.makeText(this, "Note saved", Toast.LENGTH_SHORT).show();
+                OutputStreamWriter out = new OutputStreamWriter(openFileOutput("Note_" + fileSaveTime + ".txt", 0));
+                out.write(noteText.getText().toString());
+                out.close();
+                Toast.makeText(this, "Note saved", Toast.LENGTH_SHORT).show();
+            }
         }
         catch (Throwable t){
             Toast.makeText(this, "Exception: " + t.toString(), Toast.LENGTH_SHORT).show();
