@@ -12,6 +12,16 @@
         android:layout_height="match_parent"
         android:background="@android:color/transparent"
         android:gravity="top"
-        android:textColorLink="@android:color/black" />
+        android:textColor="@android:color/black" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabSaveNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@mipmap/ic_content_save_white_36dp" />
 
 </android.support.constraint.ConstraintLayout>
