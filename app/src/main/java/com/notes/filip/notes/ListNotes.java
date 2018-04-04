@@ -3,6 +3,8 @@ package com.notes.filip.notes;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -13,8 +15,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ListNotes extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private List<Note> notesList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private NotesAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +49,24 @@ public class ListNotes extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mAdapter = new NotesAdapter(notesList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+
+        prepareNotes();
+    }
+
+    private void prepareNotes(){
+        Note note = new Note("test content for a note", "15.02.2018");
+        notesList.add(note);
+
+        note = new Note("another test content for a note", "25.12.2016");
+        notesList.add(note);
+
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override
