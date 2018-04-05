@@ -32,6 +32,8 @@ public class ListNotes extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        recyclerView = (RecyclerView) findViewById(R.id.notes_recycler_view);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,10 +62,10 @@ public class ListNotes extends AppCompatActivity
     }
 
     private void prepareNotes(){
-        Note note = new Note("test content for a note", "15.02.2018");
+        Note note = new Note("test content for a note", "Last modified: 15.02.2018");
         notesList.add(note);
 
-        note = new Note("another test content for a note", "25.12.2016");
+        note = new Note("another test content for a note", "Last modified: 25.12.2016");
         notesList.add(note);
 
         mAdapter.notifyDataSetChanged();

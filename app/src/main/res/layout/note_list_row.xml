@@ -14,16 +14,17 @@
     <TextView
         android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="87dp"
         android:layout_alignParentTop="true"
         android:textColor="@color/colorContent"/>
 
     <TextView
         android:id="@+id/lastModified"
-        android:hint="Last modified:"
-        android:layout_width="match_parent"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:textSize="10sp"
-        android:textColor="@color/colorLastModified"/>
+        android:layout_alignBottom="@+id/content"
+        android:layout_alignEnd="@+id/content"
+        android:textColor="@color/colorLastModified"
+        android:textSize="10sp" />
 
 </RelativeLayout>
