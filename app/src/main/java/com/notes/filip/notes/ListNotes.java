@@ -14,6 +14,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class ListNotes extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private List<Note> notesList = new ArrayList<>();
-    private RecyclerView recyclerView;
+    private ListView recyclerView;
     private NotesAdapter mAdapter;
 
     @Override
@@ -32,7 +33,7 @@ public class ListNotes extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        recyclerView = (RecyclerView) findViewById(R.id.notes_recycler_view);
+        recyclerView = (ListView) findViewById(R.id.notes_recycler_view);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -54,8 +55,8 @@ public class ListNotes extends AppCompatActivity
 
         mAdapter = new NotesAdapter(notesList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        recyclerView.setLayoutManager(mLayoutManager);
+//        recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
         prepareNotes();
